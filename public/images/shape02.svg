@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.1 63.08">
+  <defs>
+    <style>
+      .cls-1 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: #cd7000;
+        mix-blend-mode: multiply;
+        opacity: .22;
+      }
+    </style>
+  </defs>
+  <g class="cls-1">
+    <g id="_レイヤー_2" data-name="レイヤー 2">
+      <g id="_イラスト" data-name="イラスト">
+        <path class="cls-2" d="M13.22,13.2C4.69,21.72,0,33.06,0,45.11c0,6.07,1.2,11.95,3.47,17.39.25.59,1,.76,1.49.35L69.76,8.78c.49-.41.45-1.18-.08-1.53C62.24,2.42,53.69,0,45.13,0c-11.56,0-23.11,4.4-31.91,13.2Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,290 @@
+/* Setting
+------------------------------*/
+@use "sass:math";
+@import "@acab/reset.css";
+
+$color-main: #d97700;
+
+$w-container: 2500;
+$h-container: 1500;
+
+/* Base
+------------------------------*/
+body {
+  color: $color-main;
+  font-size: 17px;
+  font-family: "m-plus-1p", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  line-height: math.div(33, 17);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  scrollbar-width: none;
+  cursor: grab;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &__inner {
+    position: relative;
+    width: $w-container + px;
+    height: $h-container + px;
+    background: #fff;
+    //transform: scale(0.6);
+  }
+}
+
+$w-no01: 940;
+$t-no01: 1387;
+$l-no01: 2040;
+
+.no01 {
+  display: grid;
+  grid-template-columns: math.div(90, $w-no01)*100% math.div(200, $w-no01)*100% 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: absolute;
+  top: math.div($t-no01, $h-container)*100%;
+  left: math.div($l-no01, $w-container)*100%;
+  width: math.div($w-no01, $w-container)*100%;
+  background: url(./images/01_number.svg) no-repeat right bottom / 24%;
+
+  &::before {
+    grid-area: 1 / 1 / 4 / 2;
+    content: "";
+    display: block;
+    width: 40px;
+    height: 100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    grid-area: 1 / 2 / 4 / 3;
+    margin-right: math.div(25, 200)*100%;
+  }
+
+  &__pic01 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+
+  &__tit02 {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+
+  &__txt01 {
+    grid-area: 3 / 3 / 4 / 4;
+  }
+}
+
+$w-no02: 640;
+$t-no02: 50;
+$l-no02: 2330;
+
+.no02 {
+  position: absolute;
+  top: math.div($t-no02, $h-container)*100%;
+  left: math.div($l-no02, $w-container)*100%;
+  width: math.div($w-no02, $w-container)*100%;
+  background: url(./images/02_number.svg) no-repeat right 5% bottom 60%/52%;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 50px;
+    background-color: $color-main;
+  }
+
+  &__txt01 {
+    margin: -40% 0 10%;
+  }
+}
+
+$w-no03: 940;
+$t-no03: 470;
+$l-no03: 50;
+
+.no03 {
+  position: absolute;
+  top: math.div($t-no03, $h-container)*100%;
+  left: math.div($l-no03, $w-container)*100%;
+  width: math.div($w-no03, $w-container)*100%;
+  background: url(./images/03_number.svg) no-repeat right 0% bottom 68%/36%;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 50px;
+    background-color: $color-main;
+  }
+
+  &__tit02 {
+    width: math.div(568, $w-no03)*100%;
+    margin: 8% 0 0 auto;
+  }
+
+  &__txt01 {
+    margin-top: -32%;
+  }
+}
+
+$w-no04: 940;
+$t-no04: 470;
+$l-no04: 1090;
+
+.no04 {
+  position: absolute;
+  top: math.div($t-no04, $h-container)*100%;
+  left: math.div($l-no04, $w-container)*100%;
+  width: math.div($w-no04, $w-container)*100%;
+  background: url(./images/04_number.svg) no-repeat right 0% bottom 0%/36%;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 50px;
+    background-color: $color-main;
+  }
+
+  &__txt01 {
+    margin-top: 4%;
+  }
+}
+
+$w-no05: 1370;
+$t-no05: 1510;
+$l-no05: 3070;
+
+.no05 {
+  display: grid;
+  grid-template-columns: math.div(90, $w-no05)*100% 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: absolute;
+  top: math.div($t-no05, $h-container)*100%;
+  left: math.div($l-no05, $w-container)*100%;
+  width: math.div($w-no05, $w-container)*100%;
+  background: url(./images/05_number.svg) no-repeat right 12% bottom 100%/24%;
+
+  &::before {
+    grid-area: 1 / 1 / 4 / 2;
+    content: "";
+    display: block;
+    width: 40px;
+    height: 100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  &__txt01 {
+    grid-area: 2 / 2 / 3 / 3;
+    margin: -22% 0 4%;
+  }
+
+  &__img01 {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+}
+
+$w-no06: 1097;
+$t-no06: 53;
+$l-no06: 3340;
+
+.no06 {
+  display: grid;
+  grid-template-columns: math.div(90, $w-no06)*100% math.div(724, $w-no06)*100% 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: absolute;
+  bottom: math.div($t-no06, $h-container)*100%;
+  left: math.div($l-no06, $w-container)*100%;
+  width: math.div($w-no06, $w-container)*100%;
+  padding-top: 6%;
+  background: url(./images/06_number.svg) no-repeat right 0% bottom 0%/28%;
+
+  &::before {
+    grid-area: 1 / 1 / 3 / 2;
+    content: "";
+    display: block;
+    width: 40px;
+    height: 100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    grid-area: 1 / 2 / 2 / 4;
+    margin-bottom: 4%;
+  }
+
+  &__form01 {
+    grid-area: 2 / 2 / 3 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    ul {
+      margin-left: 4%;
+    }
+
+    li {
+      margin-top: .5em;
+    }
+
+    input {
+      display: none;
+
+      &+span {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          margin-right: .5em;
+          background: url(./images/06_check_off.svg) no-repeat left bottom;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    input:checked {
+      &+span {
+        &::before {
+          background-image: url(./images/06_check_on.svg);
+        }
+      }
+    }
+  }
+
+  &__img01 {
+    grid-area: 2 / 3 / 3 / 4;
+    width: 58%;
+  }
+}
+
+.kohei {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

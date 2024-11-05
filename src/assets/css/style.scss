@@ -1,0 +1,612 @@
+/* Setting
+------------------------------*/
+@use "sass:math";
+@import "@acab/reset.css";
+
+$color-main: #d97700;
+
+$w-container: 5000;
+$w-current: 5000;
+$h-container: 3000;
+
+/* Base
+------------------------------*/
+body {
+  color: $color-main;
+  font-size: math.div(17*$w-current, $w-container) + px;
+  font-family: "m-plus-1p", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  line-height: math.div(33, 17);
+}
+
+.zoom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9998;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: .5rem;
+    border: 2px solid $color-main;
+    background-color: #fff;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  overflow: scroll;
+  scrollbar-width: none;
+  cursor: grab;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: math.div(990, $w-container)*100% math.div(940, $w-container)*100% math.div(2300, $w-container)*100% math.div(470, $w-container)*100%;
+    grid-template-rows: math.div(470, $h-container)*100% math.div(720, $h-container)*100% math.div(1125, $h-container)*100% math.div(385, $h-container)*100%;
+    grid-column-gap: math.div(100, $w-container)*100%;
+    grid-row-gap: math.div(100, $h-container)*100%;
+    transform-origin: left top;
+    width: $w-current + px;
+    aspect-ratio: 5/3;
+    transform: .2s;
+  }
+}
+
+/* .area01
+-------------------------*/
+$w-area01: 2300;
+$h-area01: 1125;
+$w-no01: 930;
+$w-no05: 1270;
+
+.area01 {
+  grid-area: 3 / 3 / 4 / 4;
+  display: grid;
+  grid-template-columns: math.div($w-no01, $w-area01)*100% math.div($w-no05, $w-area01)*100%;
+  grid-template-rows: math.div(1035, $h-area01)*100% math.div(90, $h-area01)*100%;
+  gap: 0 math.div(100, $w-area01)*100%;
+}
+
+.no01 {
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  grid-template-columns: math.div(80, $w-no01)*100% math.div(196, $w-no01)*100% 1fr;
+  gap: 0;
+  padding-bottom: math.div(40, $w-no01)*100%;
+  background: url(../images/01_number.svg) no-repeat right bottom 12% / 24%;
+
+  &::before {
+    grid-area: 1 / 1 / 4 / 2;
+    content: "";
+    display: block;
+    width: math.div(40, 80)*100%;
+    height: 100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    grid-area: 1 / 2 / 4 / 3;
+    width: math.div(176, 196)*100%;
+  }
+
+  &__pic01 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+
+  &__tit02 {
+    grid-area: 2 / 3 / 3 / 4;
+    margin: math.div(40, $w-no01)*100% 0;
+  }
+
+  &__txt01 {
+    grid-area: 3 / 3 / 4 / 4;
+  }
+}
+
+.no05 {
+  grid-area: 1 / 2 / 2 / 3;
+  display: grid;
+  grid-template-columns: math.div(80, $w-no05)*100% 1fr;
+  gap: 0;
+  padding-top: math.div(120, $w-no05)*100%;
+  background: url(./images/05_number.svg) no-repeat right 10% bottom 78%/24%;
+
+  &::before {
+    grid-area: 1 / 1 / 4 / 2;
+    content: "";
+    display: block;
+    width: math.div(40, 80)*100%;
+    height: 100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  &__txt01 {
+    grid-area: 2 / 2 / 3 / 3;
+    margin-top: -24%;
+  }
+
+  &__img01 {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+}
+
+.news {
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+/* .area02
+-------------------------*/
+$w-area02: 2870;
+$h-area02: 1290;
+$w-object: 100;
+$w-no02: 640;
+$w-instagram: 720;
+$w-kohei: 1110;
+
+.area02 {
+  grid-area: 1 / 3 / 3 / 5;
+  display: grid;
+  grid-template-columns: math.div($w-object, $w-area02)*100% math.div($w-no02, $w-area02)*100% math.div($w-instagram, $w-area02)*100% math.div($w-kohei, $w-area02)*100%;
+  grid-template-rows: math.div(1135, $h-area02)*100% math.div(55, $h-area02)*100%;
+  gap: math.div(100, 1290)*100% math.div(100, $w-area02)*100%;
+
+  &__loop {
+    grid-area: 2 / 1 / 3 / 5;
+    overflow: hidden;
+
+    &-inner {
+      display: flex;
+      width: 176%;
+      height: 100%;
+    }
+
+    &-item01,
+    &-item02 {
+      width: 50%;
+      margin-right: 1.5em;
+    }
+  }
+}
+
+.object {
+  grid-area: 1 / 1 / 2 / 2;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.no02 {
+  grid-area: 1 / 2 / 2 / 3;
+  padding-top: math.div(50, $w-no02)*100%;
+  background: url(../images/02_number.svg) no-repeat right 5% bottom 60%/52%;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    margin-bottom: math.div(40, $w-no02)*100%;
+    padding-bottom: math.div(40, $w-no02)*100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    padding: 0 math.div(15, $w-no02)*100%;
+  }
+
+  &__img01 {
+    padding: 0 math.div(15, $w-no02)*100%;
+  }
+
+  &__txt01 {
+    margin: -36% 0 math.div(50, $w-no02)*100%;
+    padding: 0 math.div(15, $w-no02)*100%;
+  }
+}
+
+.instagram {
+  grid-area: 1 / 3 / 2 / 4;
+  padding-top: math.div(50, $w-instagram)*100%;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: math.div(5, $w-instagram)*100% math.div(10, $w-instagram)*100%;
+
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+  }
+}
+
+.kohei {
+  grid-area: 1 / 4 / 2 / 5;
+  position: relative;
+  z-index: 1;
+  background: url(../images/kohei_img.svg) no-repeat right top;
+
+  &__tit01 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: math.div(450, $w-kohei)*100%;
+    transform: translate(20%, 150%);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__profile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(52%, 224%) rotate(-14deg);
+  }
+
+  &__msg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: math.div(700, $w-kohei)*100%;
+    transform: translate(-6%, 102%);
+  }
+
+  &__pic {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: math.div(592, $w-kohei)*100%;
+    transform: translate(-7%, -1%);
+  }
+}
+
+/* .area03
+-------------------------*/
+$w-area03: 990;
+$h-area03: 2430;
+$w-no03: 990;
+$w-sachie: 990;
+
+.area03 {
+  grid-area: 2 / 1 / 5 / 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: math.div(870, $h-area03)*100% math.div(1460, $h-area03)*100%;
+  gap: math.div(100, $h-area03)*100% 0;
+}
+
+.no03 {
+  grid-area: 1 / 1 / 2 / 2;
+  padding-left: math.div(50, $w-area03)*100%;
+  background: url(../images/03_number.svg) no-repeat right 0% bottom 68%/36%;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    margin-bottom: math.div(40, $w-no03 - 50)*100%;
+    padding-bottom: math.div(40, $w-no03 - 50)*100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    padding: 0 math.div(15, $w-no03)*100%;
+  }
+
+  &__tit02 {
+    width: math.div(568, $w-no03)*100%;
+    margin: 10% 0 0 auto;
+    padding: 0 math.div(15, $w-no03)*100%;
+  }
+
+  &__txt01 {
+    margin-top: -29%;
+    padding: 0 math.div(15, $w-no03)*100%;
+  }
+}
+
+.sachie {
+  grid-area: 2 / 1 / 3 / 2;
+  position: relative;
+  padding-top: math.div(300, $w-sachie)*100%;
+  background: url(../images/sachie_img.svg) no-repeat left bottom / 110%;
+
+  &__tit01 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: math.div(590, $w-sachie)*100%;
+    transform: translate(56%, 188%);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__profile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(124%, 316%) rotate(16deg);
+  }
+
+  &__msg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: math.div(663, $w-sachie)*100%;
+    transform: translate(0%, -28%);
+  }
+
+  &__pic {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: math.div(624, $w-sachie)*100%;
+    transform: translate(10%, 0%);
+  }
+}
+
+/* .area04
+-------------------------*/
+$w-area04: 940;
+$h-area04: 2430;
+$w-no04: 940;
+$w-project: 940;
+
+.area04 {
+  grid-area: 2 / 2 / 5 / 3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: math.div(630, $h-area04)*100% math.div(1700, $h-area04)*100%;
+  gap: math.div(100, $h-area04)*100% 0;
+}
+
+.no04 {
+  grid-area: 1 / 1 / 2 / 2;
+  background: url(../images/04_number.svg) no-repeat right 0% bottom 0%/36%;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    margin-bottom: math.div(40, $w-no04)*100%;
+    padding-bottom: math.div(40, $w-no04)*100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    padding: 0 math.div(15, $w-no04)*100%;
+  }
+
+  &__txt01 {
+    margin-top: 3%;
+    padding: 0 math.div(15, $w-no04)*100%;
+  }
+}
+
+.project {
+  grid-area: 2 / 1 / 3 / 2;
+  display: grid;
+  grid-template-columns: math.div(80, $w-project)*100% math.div(220, $w-project)*100% math.div(470, $w-project)*100% 1fr;
+  gap: 0;
+  padding-bottom: math.div(50, $w-project)*100%;
+  position: relative;
+
+  &::before {
+    grid-area: 1 / 1 / 3 / 2;
+    content: "";
+    display: block;
+    width: math.div(40, 80)*100%;
+    height: 100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    grid-area: 1 / 2 / 3 / 3;
+    width: math.div(142, 220)*100%;
+  }
+
+  &__map {
+    grid-area: 1 / 3 / 2 / 5;
+
+    &-img {
+      margin: -30% 0 math.div(50, 640)*100%;
+    }
+  }
+
+  &__list {
+    grid-area: 2 / 3 / 3 / 4;
+
+    li {
+      margin-bottom: 6%;
+    }
+
+    img {
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+  }
+
+  &__loop {
+    grid-area: 2 / 4 / 3 / 5;
+    padding-left: math.div(80, 170)*100%;
+    overflow: hidden;
+
+    &-inner {
+      width: math.div(50, 170)*100%;
+    }
+
+    &-item01,
+    &-item02 {
+      margin-top: 0.8em;
+    }
+  }
+}
+
+/* .area05
+-------------------------*/
+$w-area05: 2300;
+$h-area05: 385;
+$w-no06: 1100;
+$w-connection: 1100;
+
+.area05 {
+  grid-area: 4 / 3 / 5 / 4;
+  display: grid;
+  grid-template-columns: math.div($w-connection, $w-area05)*100% math.div($w-no06, $w-area05)*100%;
+  gap: math.div(100, $w-area05)*100%;
+}
+
+.no06 {
+  display: grid;
+  grid-template-columns: math.div(80, $w-no06)*100% math.div(730, $w-no06)*100% 1fr;
+  grid-template-rows: repeat(2, min-content);
+  gap: 0;
+  background: url(../images/06_number.svg) no-repeat right 0% bottom 0%/28%;
+  padding-bottom: math.div(50, $w-no06)*100%;
+
+  &::before {
+    grid-area: 1 / 1 / 3 / 2;
+    content: "";
+    display: block;
+    width: math.div(40, 80)*100%;
+    height: 100%;
+    background-color: $color-main;
+  }
+
+  &__tit01 {
+    grid-area: 1 / 2 / 2 / 4;
+    margin-bottom: 2%;
+  }
+
+  &__form01 {
+    grid-area: 2 / 2 / 3 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    ul {
+      margin-left: 4%;
+    }
+
+    li {
+      margin-top: .5em;
+    }
+
+    input {
+      display: none;
+
+      &+span {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: "";
+          display: inline-block;
+          min-width: math.div(30, 330)*100%;
+          aspect-ratio: 1/1;
+          margin-right: .5em;
+          background: url(../images/06_check_off.svg) no-repeat left bottom;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    input:checked {
+      &+span {
+        &::before {
+          background-image: url(../images/06_check_on.svg);
+        }
+      }
+    }
+  }
+
+  &__img01 {
+    grid-area: 2 / 3 / 3 / 4;
+    width: 58%;
+  }
+}
+
+/* .area06
+-------------------------*/
+$w-area06: 2030;
+$h-area06: 470;
+
+.area06 {
+  grid-area: 1 / 1 / 2 / 3;
+  padding-top: math.div(50, $w-area06)*100%;
+  overflow: hidden;
+
+  &__loop {
+    display: flex;
+    flex-wrap: wrap;
+    width: 240%;
+
+    &-item01,
+    &-item02 {
+      display: flex;
+      width: 50%;
+
+      li {
+        width: 25%;
+        padding: 0 math.div(10, $w-area06)*100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* .area07
+-------------------------*/
+$w-area07: 470;
+
+.area07 {
+  grid-area: 3 / 4 / 5 / 5;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+  padding-right: math.div(50, $w-area07)*100%;
+  overflow: hidden;
+
+  li {
+    padding: math.div(10, $w-area07)*100% 0;
+  }
+
+  img {
+    width: 100%;
+  }
+}
