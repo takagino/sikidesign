@@ -34,6 +34,7 @@ const App = () => {
 
   const container = useRef(null);
   const dragRef = useRef(null);
+  const targetRef = useRef(null);
   const [dragValue, setDragValue] = useState({
     down: "false",
     move: "false",
@@ -81,7 +82,12 @@ const App = () => {
       document.body.style.fontSize = `${(17 * zoomLevel) / 5}px`;
       container.current.style.width = `${zoomLevel * 1000}px`;
     }
-  }, []);
+
+    const target = targetRef.current.getBoundingClientRect();
+    console.log(target.left, target.top, target.width, target.height);
+    dragRef.current.scrollLeft = target.left - target.width / 2;
+    dragRef.current.scrollTop = target.top - target.height / 2;
+  }, [targetRef]);
 
   //ドラッグ操作
   const refMouseDown = (e) => {
@@ -259,7 +265,7 @@ const App = () => {
   return (
     <div className='container' onMouseDown={refMouseDown} onMouseUp={refMouseUp} onMouseMove={refMouseMove} onClick={refClick} ref={dragRef}>
       <div className='container__inner' ref={container}>
-        <div className='area01'>
+        <div className='area01' ref={targetRef}>
           <section className='no01'>
             <h1 className='no01__tit01'><img src="./images/01_tit01.svg" alt="SiKidesign" /></h1>
             <img className='no01__pic01' src="./images/dummy.jpg" alt="" />
