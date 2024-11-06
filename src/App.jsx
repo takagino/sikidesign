@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
+/* useMedia */
+import { useMedia } from "react-use";
+import { isMobile } from "react-device-detect";
+
 /* Adobe Fonts */
 import { useAdobeFonts } from 'react-adobe-fonts';
 
@@ -71,6 +75,12 @@ const App = () => {
         setConnection(res.contents);
       })
       .catch((err) => console.log(err));
+
+    if (isMobile) {
+      zoomLevel = 3;
+      document.body.style.fontSize = `${(17 * zoomLevel) / 5}px`;
+      container.current.style.width = `${zoomLevel * 1000}px`;
+    }
   }, []);
 
   //ドラッグ操作
