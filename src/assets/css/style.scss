@@ -1,7 +1,7 @@
 /* Setting
 ------------------------------*/
-@use "sass:math";
-@import "@acab/reset.css";
+@use 'sass:math';
+@import '@acab/reset.css';
 
 $color-main: #d97700;
 
@@ -13,8 +13,8 @@ $h-container: 3000;
 ------------------------------*/
 body {
   color: $color-main;
-  font-size: math.div(17*$w-current, $w-container) + px;
-  font-family: "m-plus-1p", sans-serif;
+  font-size: math.div(17 * $w-current, $w-container) + px;
+  font-family: 'm-plus-1p', sans-serif;
   font-weight: 800;
   font-style: normal;
   line-height: math.div(33, 17);
@@ -22,8 +22,8 @@ body {
 
 .zoom {
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 10px;
   z-index: 9998;
 
   button {
@@ -32,9 +32,17 @@ body {
     align-items: center;
     width: 30px;
     height: 30px;
-    padding: .5rem;
+    margin-top: 5px;
+    padding: 0.5rem;
     border: 2px solid $color-main;
+    border-radius: 50%;
     background-color: #fff;
+    font-size: 2rem;
+
+    &:hover {
+      background-color: $color-main;
+      color: #fff;
+    }
   }
 }
 
@@ -57,14 +65,23 @@ body {
 
   &__inner {
     display: grid;
-    grid-template-columns: math.div(990, $w-container)*100% math.div(940, $w-container)*100% math.div(2300, $w-container)*100% math.div(470, $w-container)*100%;
-    grid-template-rows: math.div(470, $h-container)*100% math.div(720, $h-container)*100% math.div(1125, $h-container)*100% math.div(385, $h-container)*100%;
-    grid-column-gap: math.div(100, $w-container)*100%;
-    grid-row-gap: math.div(100, $h-container)*100%;
-    transform-origin: left top;
+    grid-template-columns:
+      math.div(990, $w-container) * 100% math.div(940, $w-container) * 100% math.div(
+        2300,
+        $w-container
+      )
+      * 100% math.div(470, $w-container) * 100%;
+    grid-template-rows:
+      math.div(470, $h-container) * 100% math.div(720, $h-container) * 100% math.div(
+        1125,
+        $h-container
+      )
+      * 100% math.div(385, $h-container) * 100%;
+    grid-column-gap: math.div(100, $w-container) * 100%;
+    grid-row-gap: math.div(100, $h-container) * 100%;
+    transform-origin: center;
     width: $w-current + px;
     aspect-ratio: 5/3;
-    transform: .2s;
   }
 }
 
@@ -78,31 +95,31 @@ $w-no05: 1270;
 .area01 {
   grid-area: 3 / 3 / 4 / 4;
   display: grid;
-  grid-template-columns: math.div($w-no01, $w-area01)*100% math.div($w-no05, $w-area01)*100%;
-  grid-template-rows: math.div(1035, $h-area01)*100% math.div(90, $h-area01)*100%;
-  gap: 0 math.div(100, $w-area01)*100%;
+  grid-template-columns: math.div($w-no01, $w-area01) * 100% math.div($w-no05, $w-area01) * 100%;
+  grid-template-rows: math.div(1035, $h-area01) * 100% math.div(90, $h-area01) * 100%;
+  gap: 0 math.div(100, $w-area01) * 100%;
 }
 
 .no01 {
   grid-area: 1 / 1 / 2 / 2;
   display: grid;
-  grid-template-columns: math.div(80, $w-no01)*100% math.div(196, $w-no01)*100% 1fr;
+  grid-template-columns: math.div(80, $w-no01) * 100% math.div(196, $w-no01) * 100% 1fr;
   gap: 0;
-  padding-bottom: math.div(40, $w-no01)*100%;
+  padding-bottom: math.div(40, $w-no01) * 100%;
   background: url(../images/01_number.svg) no-repeat right bottom 12% / 24%;
 
   &::before {
     grid-area: 1 / 1 / 4 / 2;
-    content: "";
+    content: '';
     display: block;
-    width: math.div(40, 80)*100%;
+    width: math.div(40, 80) * 100%;
     height: 100%;
     background-color: $color-main;
   }
 
   &__tit01 {
     grid-area: 1 / 2 / 4 / 3;
-    width: math.div(176, 196)*100%;
+    width: math.div(176, 196) * 100%;
   }
 
   &__pic01 {
@@ -111,7 +128,7 @@ $w-no05: 1270;
 
   &__tit02 {
     grid-area: 2 / 3 / 3 / 4;
-    margin: math.div(40, $w-no01)*100% 0;
+    margin: math.div(40, $w-no01) * 100% 0;
   }
 
   &__txt01 {
@@ -122,16 +139,16 @@ $w-no05: 1270;
 .no05 {
   grid-area: 1 / 2 / 2 / 3;
   display: grid;
-  grid-template-columns: math.div(80, $w-no05)*100% 1fr;
+  grid-template-columns: math.div(80, $w-no05) * 100% 1fr;
   gap: 0;
-  padding-top: math.div(120, $w-no05)*100%;
+  padding-top: math.div(120, $w-no05) * 100%;
   background: url(./images/05_number.svg) no-repeat right 10% bottom 78%/24%;
 
   &::before {
     grid-area: 1 / 1 / 4 / 2;
-    content: "";
+    content: '';
     display: block;
-    width: math.div(40, 80)*100%;
+    width: math.div(40, 80) * 100%;
     height: 100%;
     background-color: $color-main;
   }
@@ -166,9 +183,14 @@ $w-kohei: 1110;
 .area02 {
   grid-area: 1 / 3 / 3 / 5;
   display: grid;
-  grid-template-columns: math.div($w-object, $w-area02)*100% math.div($w-no02, $w-area02)*100% math.div($w-instagram, $w-area02)*100% math.div($w-kohei, $w-area02)*100%;
-  grid-template-rows: math.div(1135, $h-area02)*100% math.div(55, $h-area02)*100%;
-  gap: math.div(100, 1290)*100% math.div(100, $w-area02)*100%;
+  grid-template-columns:
+    math.div($w-object, $w-area02) * 100% math.div($w-no02, $w-area02) * 100% math.div(
+      $w-instagram,
+      $w-area02
+    )
+    * 100% math.div($w-kohei, $w-area02) * 100%;
+  grid-template-rows: math.div(1135, $h-area02) * 100% math.div(55, $h-area02) * 100%;
+  gap: math.div(100, 1290) * 100% math.div(100, $w-area02) * 100%;
 
   &__loop {
     grid-area: 2 / 1 / 3 / 5;
@@ -203,40 +225,40 @@ $w-kohei: 1110;
 
 .no02 {
   grid-area: 1 / 2 / 2 / 3;
-  padding-top: math.div(50, $w-no02)*100%;
+  padding-top: math.div(50, $w-no02) * 100%;
   background: url(../images/02_number.svg) no-repeat right 5% bottom 60%/52%;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
-    margin-bottom: math.div(40, $w-no02)*100%;
-    padding-bottom: math.div(40, $w-no02)*100%;
+    margin-bottom: math.div(40, $w-no02) * 100%;
+    padding-bottom: math.div(40, $w-no02) * 100%;
     background-color: $color-main;
   }
 
   &__tit01 {
-    padding: 0 math.div(15, $w-no02)*100%;
+    padding: 0 math.div(15, $w-no02) * 100%;
   }
 
   &__img01 {
-    padding: 0 math.div(15, $w-no02)*100%;
+    padding: 0 math.div(15, $w-no02) * 100%;
   }
 
   &__txt01 {
-    margin: -36% 0 math.div(50, $w-no02)*100%;
-    padding: 0 math.div(15, $w-no02)*100%;
+    margin: -36% 0 math.div(50, $w-no02) * 100%;
+    padding: 0 math.div(15, $w-no02) * 100%;
   }
 }
 
 .instagram {
   grid-area: 1 / 3 / 2 / 4;
-  padding-top: math.div(50, $w-instagram)*100%;
+  padding-top: math.div(50, $w-instagram) * 100%;
 
   &__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: math.div(5, $w-instagram)*100% math.div(10, $w-instagram)*100%;
+    gap: math.div(5, $w-instagram) * 100% math.div(10, $w-instagram) * 100%;
 
     img {
       width: 100%;
@@ -256,7 +278,7 @@ $w-kohei: 1110;
     position: absolute;
     top: 0;
     left: 0;
-    width: math.div(450, $w-kohei)*100%;
+    width: math.div(450, $w-kohei) * 100%;
     transform: translate(20%, 150%);
 
     img {
@@ -275,7 +297,7 @@ $w-kohei: 1110;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: math.div(700, $w-kohei)*100%;
+    width: math.div(700, $w-kohei) * 100%;
     transform: translate(-6%, 102%);
   }
 
@@ -283,7 +305,7 @@ $w-kohei: 1110;
     position: absolute;
     bottom: 0;
     right: 0;
-    width: math.div(592, $w-kohei)*100%;
+    width: math.div(592, $w-kohei) * 100%;
     transform: translate(-7%, -1%);
   }
 }
@@ -299,51 +321,51 @@ $w-sachie: 990;
   grid-area: 2 / 1 / 5 / 2;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: math.div(870, $h-area03)*100% math.div(1460, $h-area03)*100%;
-  gap: math.div(100, $h-area03)*100% 0;
+  grid-template-rows: math.div(870, $h-area03) * 100% math.div(1460, $h-area03) * 100%;
+  gap: math.div(100, $h-area03) * 100% 0;
 }
 
 .no03 {
   grid-area: 1 / 1 / 2 / 2;
-  padding-left: math.div(50, $w-area03)*100%;
+  padding-left: math.div(50, $w-area03) * 100%;
   background: url(../images/03_number.svg) no-repeat right 0% bottom 68%/36%;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
-    margin-bottom: math.div(40, $w-no03 - 50)*100%;
-    padding-bottom: math.div(40, $w-no03 - 50)*100%;
+    margin-bottom: math.div(40, $w-no03 - 50) * 100%;
+    padding-bottom: math.div(40, $w-no03 - 50) * 100%;
     background-color: $color-main;
   }
 
   &__tit01 {
-    padding: 0 math.div(15, $w-no03)*100%;
+    padding: 0 math.div(15, $w-no03) * 100%;
   }
 
   &__tit02 {
-    width: math.div(568, $w-no03)*100%;
+    width: math.div(568, $w-no03) * 100%;
     margin: 10% 0 0 auto;
-    padding: 0 math.div(15, $w-no03)*100%;
+    padding: 0 math.div(15, $w-no03) * 100%;
   }
 
   &__txt01 {
     margin-top: -29%;
-    padding: 0 math.div(15, $w-no03)*100%;
+    padding: 0 math.div(15, $w-no03) * 100%;
   }
 }
 
 .sachie {
   grid-area: 2 / 1 / 3 / 2;
   position: relative;
-  padding-top: math.div(300, $w-sachie)*100%;
+  padding-top: math.div(300, $w-sachie) * 100%;
   background: url(../images/sachie_img.svg) no-repeat left bottom / 110%;
 
   &__tit01 {
     position: absolute;
     top: 0;
     left: 0;
-    width: math.div(590, $w-sachie)*100%;
+    width: math.div(590, $w-sachie) * 100%;
     transform: translate(56%, 188%);
 
     img {
@@ -362,7 +384,7 @@ $w-sachie: 990;
     position: absolute;
     top: 0;
     right: 0;
-    width: math.div(663, $w-sachie)*100%;
+    width: math.div(663, $w-sachie) * 100%;
     transform: translate(0%, -28%);
   }
 
@@ -370,7 +392,7 @@ $w-sachie: 990;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: math.div(624, $w-sachie)*100%;
+    width: math.div(624, $w-sachie) * 100%;
     transform: translate(10%, 0%);
   }
 }
@@ -386,8 +408,8 @@ $w-project: 940;
   grid-area: 2 / 2 / 5 / 3;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: math.div(630, $h-area04)*100% math.div(1700, $h-area04)*100%;
-  gap: math.div(100, $h-area04)*100% 0;
+  grid-template-rows: math.div(630, $h-area04) * 100% math.div(1700, $h-area04) * 100%;
+  gap: math.div(100, $h-area04) * 100% 0;
 }
 
 .no04 {
@@ -395,51 +417,53 @@ $w-project: 940;
   background: url(../images/04_number.svg) no-repeat right 0% bottom 0%/36%;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
-    margin-bottom: math.div(40, $w-no04)*100%;
-    padding-bottom: math.div(40, $w-no04)*100%;
+    margin-bottom: math.div(40, $w-no04) * 100%;
+    padding-bottom: math.div(40, $w-no04) * 100%;
     background-color: $color-main;
   }
 
   &__tit01 {
-    padding: 0 math.div(15, $w-no04)*100%;
+    padding: 0 math.div(15, $w-no04) * 100%;
   }
 
   &__txt01 {
     margin-top: 3%;
-    padding: 0 math.div(15, $w-no04)*100%;
+    padding: 0 math.div(15, $w-no04) * 100%;
   }
 }
 
 .project {
   grid-area: 2 / 1 / 3 / 2;
   display: grid;
-  grid-template-columns: math.div(80, $w-project)*100% math.div(220, $w-project)*100% math.div(470, $w-project)*100% 1fr;
+  grid-template-columns:
+    math.div(80, $w-project) * 100% math.div(220, $w-project) * 100% math.div(470, $w-project)
+    * 100% 1fr;
   gap: 0;
-  padding-bottom: math.div(50, $w-project)*100%;
+  padding-bottom: math.div(50, $w-project) * 100%;
   position: relative;
 
   &::before {
     grid-area: 1 / 1 / 3 / 2;
-    content: "";
+    content: '';
     display: block;
-    width: math.div(40, 80)*100%;
+    width: math.div(40, 80) * 100%;
     height: 100%;
     background-color: $color-main;
   }
 
   &__tit01 {
     grid-area: 1 / 2 / 3 / 3;
-    width: math.div(142, 220)*100%;
+    width: math.div(142, 220) * 100%;
   }
 
   &__map {
     grid-area: 1 / 3 / 2 / 5;
 
     &-img {
-      margin: -30% 0 math.div(50, 640)*100%;
+      margin: -30% 0 math.div(50, 640) * 100%;
     }
   }
 
@@ -458,11 +482,11 @@ $w-project: 940;
 
   &__loop {
     grid-area: 2 / 4 / 3 / 5;
-    padding-left: math.div(80, 170)*100%;
+    padding-left: math.div(80, 170) * 100%;
     overflow: hidden;
 
     &-inner {
-      width: math.div(50, 170)*100%;
+      width: math.div(50, 170) * 100%;
     }
 
     &-item01,
@@ -482,23 +506,23 @@ $w-connection: 1100;
 .area05 {
   grid-area: 4 / 3 / 5 / 4;
   display: grid;
-  grid-template-columns: math.div($w-connection, $w-area05)*100% math.div($w-no06, $w-area05)*100%;
-  gap: math.div(100, $w-area05)*100%;
+  grid-template-columns: math.div($w-connection, $w-area05) * 100% math.div($w-no06, $w-area05) * 100%;
+  gap: math.div(100, $w-area05) * 100%;
 }
 
 .no06 {
   display: grid;
-  grid-template-columns: math.div(80, $w-no06)*100% math.div(730, $w-no06)*100% 1fr;
+  grid-template-columns: math.div(80, $w-no06) * 100% math.div(730, $w-no06) * 100% 1fr;
   grid-template-rows: repeat(2, min-content);
   gap: 0;
   background: url(../images/06_number.svg) no-repeat right 0% bottom 0%/28%;
-  padding-bottom: math.div(50, $w-no06)*100%;
+  padding-bottom: math.div(50, $w-no06) * 100%;
 
   &::before {
     grid-area: 1 / 1 / 3 / 2;
-    content: "";
+    content: '';
     display: block;
-    width: math.div(40, 80)*100%;
+    width: math.div(40, 80) * 100%;
     height: 100%;
     background-color: $color-main;
   }
@@ -520,22 +544,22 @@ $w-connection: 1100;
     }
 
     li {
-      margin-top: .5em;
+      margin-top: 0.5em;
     }
 
     input {
       display: none;
 
-      &+span {
+      & + span {
         display: flex;
         align-items: center;
 
         &::before {
-          content: "";
+          content: '';
           display: inline-block;
-          min-width: math.div(30, 330)*100%;
+          min-width: math.div(30, 330) * 100%;
           aspect-ratio: 1/1;
-          margin-right: .5em;
+          margin-right: 0.5em;
           background: url(../images/06_check_off.svg) no-repeat left bottom;
           display: flex;
           align-items: center;
@@ -544,7 +568,7 @@ $w-connection: 1100;
     }
 
     input:checked {
-      &+span {
+      & + span {
         &::before {
           background-image: url(../images/06_check_on.svg);
         }
@@ -565,7 +589,7 @@ $h-area06: 470;
 
 .area06 {
   grid-area: 1 / 1 / 2 / 3;
-  padding-top: math.div(50, $w-area06)*100%;
+  padding-top: math.div(50, $w-area06) * 100%;
   overflow: hidden;
 
   &__loop {
@@ -580,7 +604,7 @@ $h-area06: 470;
 
       li {
         width: 25%;
-        padding: 0 math.div(10, $w-area06)*100%;
+        padding: 0 math.div(10, $w-area06) * 100%;
       }
 
       img {
@@ -599,11 +623,11 @@ $w-area07: 470;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
-  padding-right: math.div(50, $w-area07)*100%;
+  padding-right: math.div(50, $w-area07) * 100%;
   overflow: hidden;
 
   li {
-    padding: math.div(10, $w-area07)*100% 0;
+    padding: math.div(10, $w-area07) * 100% 0;
   }
 
   img {
